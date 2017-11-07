@@ -19,4 +19,8 @@ public class PersonService {
     public void addPerson(Person person) {
         personRepository.save(person);
     }
+    
+    public Person getPerson(Long id) {
+        return personRepository.findOne(id);
+    }
 }

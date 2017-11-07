@@ -36,7 +36,11 @@ public class Person {
     @OneToOne(mappedBy="person", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private License license;
 
-    public Person() {}
+    public Person() {
+
+		this.createdAt = new Date();
+		this.updatedAt = new Date();
+	}
 
 	/**
 	 * @return the firstName
@@ -92,6 +96,34 @@ public class Person {
 	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = new Date();
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the license
+	 */
+	public License getLicense() {
+		return license;
+	}
+
+	/**
+	 * @param license the license to set
+	 */
+	public void setLicense(License license) {
+		this.license = license;
 	}
     
 }

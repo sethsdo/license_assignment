@@ -1,5 +1,6 @@
 package com.project.License.models;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,12 +29,14 @@ public class License {
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;
-    @OneToOne(fetch=FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="person_id")
     private Person person;
 
     public License() {
 
+		this.createdAt = new Date();
+		this.updatedAt = new Date();
 	}
 
 	/**

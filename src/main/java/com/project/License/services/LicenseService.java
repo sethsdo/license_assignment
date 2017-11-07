@@ -11,7 +11,12 @@ public class LicenseService {
         this.licenseRepository = licenseRepository;
     }
 
-    public void addLicense(License license) {
-        licenseRepository.save(license);
+    public License addLicense(License license) {
+        System.out.println("Hello");
+        Long personId = license.getPerson().getId();
+        String licenseNum = String.format("%06d", personId);
+        license.setNumber(licenseNum);
+        License lic = licenseRepository.save(license);
+        return lic;
     }
 }

@@ -16,14 +16,17 @@
 
 	<body>
 		<div class="container">
-			<h1>Helloo </h1>
+			<h1>${users.firstName} ${users.lastName}</h1>
 			<table class="table">
-				<c:forEach items="${users}" var="user">
 					<tr>
-						<td>${user.firstName} ${user.lastName}</td>
-						
+						<td>${users.getLicense().number}</td>
 					</tr>
-				</c:forEach>
+					<tr>
+						<td>${users.getLicense().state}</td>
+					</tr>
+					<tr>
+						<td>${users.getLicense().expiration_date}</td>
+					</tr>
 			</table>
 		</div>
 	</body>

@@ -24,11 +24,11 @@
 							<form:label path="person">person:</form:label>
 						</td>
 						<td>
-							<select path="user.id" name="persion">
-								<c:forEach items="${users}" var="user">
-									<option value="${user.firstName}">${user.firstName}</option>
+							<form:select path="person">
+								<c:forEach items="${persons}" var="person">
+									<option value="${person.id}">${person.firstName} ${person.lastName}</option>
 								</c:forEach>
-							</select>
+							</form:select>
 							<form:errors path="person" />
 						</td>
 					</tr>
@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<td>
-							<form:label path="expiration_date">Expieration Date:</form:label>
+							<form:label path="expiration_date">Expiration Date:</form:label>
 						</td>
 						<td>
 							<form:input type="date" path="expiration_date" />
